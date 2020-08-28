@@ -14,6 +14,10 @@ const nodeFetch = require('node-fetch')
 const BOT_TOKEN = 'PUT YOUR BOT TOKEN'
 const { Telegraf } = require('telegraf')
 
+function getValueOfBotCommand(string, command) {
+    return string.replace(`/${command}`, '').replace(/ /g, '')
+}
+
 const bot = new Telegraf(BOT_TOKEN)
 bot.start((ctx) => ctx.reply('Hey, wellcome to the board! 👋 This bot is able to show easy information about the promotion that interests you'))
 bot.help((ctx) => ctx.reply(`
